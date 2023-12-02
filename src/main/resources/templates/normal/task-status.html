@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{normal/base::layout(~{::section})}" xmlns:th="http://www.thymeleaf.org" xmlns:>
+
+<head>
+	<meta charset="UTF-8" />
+	<title> home page</title>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+		crossorigin="anonymous"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<section>
+		<div class="col-md-14">
+			<div class="col">
+				<div class=" suraj   p-2">
+
+					<p class="card-title">
+						Pending Tasks
+					</p>
+					<div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+						<table class="table table-bordered  mb-0">
+							<thead class="bg-dark text-light ">
+								<tr class="text-center">
+									<th class="hide">Id</th>
+									<th>Type</th>
+									<th>Count</th>
+									<th>Requirements</th>
+									<th>ReferenceStyle</th>
+									<th>Deadline</th>
+									<th>Charges</th>
+									<th>Attachments</th>
+									<th class="hide">Query</th>
+									<th>Status</th>
+									<th>View</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="text-center" th:each="task: ${clientTask}">
+									<th class="hide" th:text="${task.id}" />
+									<td th:text="${task.tasktype}" />
+									<td th:text="${task.count}" />
+									<td th:text="${task.requirements}" />
+									<td th:text="${task.referencestyle}" />
+									<td th:text="${task.deadline}" />
+									<td th:text="${task.charges}" />
+									<td>
+										<div class="dropdown">
+											<button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button"
+												data-bs-toggle="dropdown" aria-expanded="false">
+												Files
+											</button>
+											<ul class="dropdown-menu">
+												<li th:each="files:${task.taskFiles}">
+													<button onclick="fileOperations(this)" class="dropdown-item"
+														type="button"><a th:text="${files.originalFileName}">
+														</a>
+														 <span class="hidden-data" th:text="${files.Name}" style="display: none;"></span>
+														</button>
+												</li>
+											</ul>
+										</div>
+
+									</td>
+									<td class="hide" th:text="${task.query}" />
+									<td><b class="text-danger" th:text="${task.status.status}"></b></td>
+									<td>
+										<button class=" btn btn-primary btn-sm" onclick="handleViewTask(this)"
+											type="button">
+											View
+										</button>
+
+									</td>
+								</tr>
+
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-14">
+				<div class="col">
+					<div class=" suraj   p-2">
+
+						<p class="card-title">
+							Approved Tasks
+						</p>
+
+						<div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+							<table class="table table-bordered  mb-0">
+								<thead class="bg-dark text-light ">
+									<tr class="text-center">
+										<th class="hide">Id</th>
+										<th>Type</th>
+										<th>Count</th>
+										<th>Requirements</th>
+										<th>ReferenceStyle</th>
+										<th>Deadline</th>
+										<th>Charges</th>
+										<th>Status</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="text-center" th:each="task:${approvedTask}">
+										<th class="hide" th:text="${task.id}" />
+										<td th:text="${task.tasktype}" />
+										<td th:text="${task.count}" />
+										<td th:text="${task.requirements}" />
+										<td th:text="${task.referencestyle}" />
+										<td th:text="${task.deadline}" />
+										<td th:text="${task.charges}" />
+										<td><b class="text-success" th:text="${task.status.status}"></b></td>
+									</tr>
+
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-14">
+					<div class="col">
+
+
+						<div class=" suraj   p-2">
+
+							<p class="card-title">
+								Completed Tasks
+							</p>
+
+							<div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+								<table class="table table-bordered  mb-0">
+									<thead class="bg-dark text-light ">
+										<tr class="text-center">
+											<th class="hide">Id</th>
+											<th>Type</th>
+											<th>Count</th>
+											<th>Requirements</th>
+											<th>ReferenceStyle</th>
+											<th>Deadline</th>
+											<th>Charges</th>
+											<th>Attachments</th>
+
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="text-center">
+											<th class="hide">hello</th>
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+											<td />
+										</tr>
+
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+</body>
+
+</html>

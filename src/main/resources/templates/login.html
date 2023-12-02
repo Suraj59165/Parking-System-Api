@@ -1,0 +1,67 @@
+<html lang="en" th:replace="~{base::layout(~{::section})}" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>this is home page</title>
+
+</head>
+
+<body>
+	<section>
+		<div id="login">
+
+			<div class="container">
+				<div class="row justify-content-center align-items-center" id="login-row">
+					<div class="col-md-6" id="login-column">
+						
+								<div class="col-md-10 " id="login-box">
+
+									<form action="/do-login" class="form" id="login-form" method="post"
+										th:action="@{/dologin}">
+
+										<h3 class="text-center text-info">Login</h3>
+
+										<div class="alert alert-danger" th:if="${param.error}">
+											Invalid email and password
+										</div>
+
+										<div class="alert alert-success" th:if="${param.logout}">
+											You have been logged out
+										</div>
+
+										<div class="alert alert-success " th:if="${param.change}">
+											<p th:text="${param.change}"></p>
+										</div>
+
+
+										<div class="form-group">
+											<label for="username">Email:</label><br>
+											<input class="form-control" name="username" type="text">
+										</div>
+
+
+										<div class="form-group">
+											<label for="password">Password:</label><br>
+											<input class="form-control" id="password" name="password" type="password">
+										</div>
+
+
+										<div class="form-group text-center mt-3">
+											<input class="btn btn-outline-primary btn-md " name="submit" type="submit"
+												value="login">
+
+										</div>
+
+
+									</form>
+								</div>
+							
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+
+</html>

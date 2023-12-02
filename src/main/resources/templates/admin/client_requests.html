@@ -1,0 +1,83 @@
+<!doctype html>
+
+<html lang="en" th:replace="~{admin/base::layout(~{::section})}" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>this is home page</title>
+
+</head>
+
+<body>
+	<section>
+		
+
+			<div class="col-md-14 p-1 shadow-sm">
+				<input type="text" class="form-control shadow-sm" placeholder="Search..." aria-label="Search" aria-describedby="search-button">
+
+				<div class="col mt-4">
+					<h5 class="card-title">
+						Pending Clients For Approval
+					</h5>
+
+					<div class="card  p-2">
+						<div class="table ">
+
+							<table class="table table-bordered ">
+								<thead class="bg-primary text-light ">
+									<tr class="text-center">
+										<th class="hide">Id</th>
+										<th>NAME</th>
+										<th>EMAIL</th>
+										<th class="hide">PASSWORD</th>
+										<th>Phone</th>
+										<th>ADDRESS</th>
+										<th>ORGNAME</th>
+										<th>C.PERSON</th>
+										<th>RUPEES</th>
+										<th>ALLOCATE</th>
+										<th>ACTION</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="text-center" th:each="client:${clients}">
+										<th class="hide" th:text="${client.id}" />
+										<th th:text="${client.name}" />
+										<th th:text="${client.email}" />
+										<th class="hide" th:text="${client.password}" />
+										<td th:text="${client.phone}" />
+										<td th:text="${client.address}" />
+										<td th:text="${client.orgname}" />
+										<td th:text="${client.contactperson}" />
+										<td th:text="${client.rupees}" />
+										<td><select class="mySelect" id="manager_details">
+												<option th:each="manager:${managers}" th:text="${manager.name}"
+													th:value="${manager.id}" />
+
+											</select></td>
+										<td>
+											<button class="btn btn-outline-primary btn-sm" id="btn"
+												onclick="handleInReview(this)">View
+											</button>
+											<button class="btn btn-outline-danger btn-sm" id="btn"
+												onclick="handleInReview(this)">Delete
+											</button>
+										</td>
+
+									</tr>
+
+								</tbody>
+
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+	
+	</section>
+
+</body>
+
+</html>

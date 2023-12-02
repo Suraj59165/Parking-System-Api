@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <title>Welcome Page</title>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .background-image {
+
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            position: relative;
+        }
+
+        .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+
+        .moving-text {
+            position: absolute;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .text1 {
+            top: 20%;
+            left: 20%;
+            animation: move1 4s infinite alternate;
+            font-size: 36px;
+            font-weight: bold;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .text2 {
+            top: 20%;
+            right: 20%;
+            animation: move2 3s infinite alternate;
+            font-size: 24px;
+            font-weight: normal;
+            color: #ffcc00;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .text3 {
+            bottom: 20%;
+            left: 20%;
+            animation: move3 5s infinite alternate;
+            font-size: 48px;
+            font-weight: bold;
+            color: #00ffcc;
+            font-family: 'Times New Roman', serif;
+            text-decoration: underline;
+        }
+
+        .text4 {
+            bottom: 20%;
+            right: 20%;
+            animation: move4 6s infinite alternate;
+            font-size: 32px;
+            font-weight: normal;
+            color: #ff00cc;
+            font-family: 'Verdana', sans-serif;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+        }
+
+        .image1 {
+            top: 10%;
+            left: 10%;
+            animation: moveImage1 7s infinite alternate;
+        }
+
+        .image2 {
+            top: 10%;
+            right: 10%;
+            animation: moveImage2 6s infinite alternate;
+        }
+
+        .image3 {
+            bottom: 10%;
+            left: 10%;
+            animation: moveImage3 8s infinite alternate;
+        }
+
+        .image4 {
+            bottom: 10%;
+            right: 10%;
+            animation: moveImage4 5s infinite alternate;
+        }
+
+
+        @keyframes move1 {
+            0% {
+                opacity: 0;
+                left: 20%;
+                top: 20%;
+            }
+            50% {
+                opacity: 1;
+                left: 30%;
+                top: 30%;
+            }
+            100% {
+                opacity: 0;
+                left: 40%;
+                top: 40%;
+            }
+        }
+
+        @keyframes move2 {
+            0% {
+                opacity: 0;
+                right: 20%;
+                top: 20%;
+            }
+            50% {
+                opacity: 1;
+                right: 30%;
+                top: 30%;
+            }
+            100% {
+                opacity: 0;
+                right: 40%;
+                top: 40%;
+            }
+        }
+
+        @keyframes move3 {
+            0% {
+                opacity: 0;
+                left: 20%;
+                bottom: 20%;
+            }
+            50% {
+                opacity: 1;
+                left: 30%;
+                bottom: 30%;
+            }
+            100% {
+                opacity: 0;
+                left: 40%;
+                bottom: 40%;
+            }
+        }
+
+        @keyframes move4 {
+            0% {
+                opacity: 0;
+                right: 20%;
+                bottom: 20%;
+            }
+            50% {
+                opacity: 1;
+                right: 30%;
+                bottom: 30%;
+            }
+            100% {
+                opacity: 0;
+                right: 40%;
+                bottom: 40%;
+            }
+        }
+
+        @keyframes moveImage1 {
+            0% {
+                opacity: 0;
+                left: 10%;
+                top: 10%;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                left: 20%;
+                top: 20%;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                left: 30%;
+                top: 30%;
+                transform: scale(0.5);
+            }
+        }
+
+        @keyframes moveImage2 {
+            0% {
+                opacity: 0;
+                right: 10%;
+                top: 10%;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                right: 20%;
+                top: 20%;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                right: 30%;
+                top: 30%;
+                transform: scale(0.5);
+            }
+        }
+
+        @keyframes moveImage3 {
+            0% {
+                opacity: 0;
+                left: 10%;
+                bottom: 10%;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                left: 20%;
+                bottom: 20%;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                left: 30%;
+                bottom: 30%;
+                transform: scale(0.5);
+            }
+        }
+
+        @keyframes moveImage4 {
+            0% {
+                opacity: 0;
+                right: 10%;
+                bottom: 10%;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                right: 20%;
+                bottom: 20%;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                right: 30%;
+                bottom: 30%;
+                transform: scale(0.5);
+            }
+        }
+
+
+    </style>
+
+</head>
+<body>
+<!-- navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="#"><b>WordoTech</b></a>
+
+
+    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+            class="navbar-toggler"
+            data-target="#navbarSupportedContent" data-toggle="collapse"
+            type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+        <ul class="navbar-nav ml-auto ">
+
+            <li class="nav-item "><a class="nav-link" href="#"
+                                           th:href="@{/}">Home <span class="sr-only">(current)</span>
+            </a></li>
+
+
+            <li class="nav-item "><a class="nav-link" href="#">About</a></li>
+
+
+            <li class="nav-item "><a aria-disabled="true" class="nav-link "
+                                           href="#" tabindex="-1" th:href="@{/signin}">Login</a></li>
+
+
+            <li class="nav-item "><a aria-disabled="true"
+                                           class="nav-link " href="#" tabindex="-1" th:href="@{/signup}">Signup</a>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>
+
+<div class="background-image">
+    <div class="content">
+        <div class="moving-text text1">Make today great</div>
+        <div class="moving-text text2">Dissertations</div>
+        <div class="moving-text text3">Business reports</div>
+        <div class="moving-text text4">Research proposals</div>
+        <img alt="Image 1" class="image1" th:src="@{/images/image1.png}">
+        <img alt="Image 2" class="image2" th:src="@{/images/image2.png}">
+        <img alt="Image 3" class="image3" th:src="@{/images/image3.png}">
+        <img alt="Image 4" class="image4" th:src="@{/images/image4.png}">
+
+    </div>
+</div>
+
+<section class="container mt-5">
+    <div class="row">
+        <div class="col-sm-4">
+            <img alt="Image 1" class="img-fluid" th:src="@{/images/img1.jpg}">
+            <p>Infographic content</p>
+        </div>
+        <div class="col-sm-4">
+            <img alt="Image 2" class="img-fluid" th:src="@{/images/img2.jpg}">
+            <p>Tourism And Hospitality</p>
+        </div>
+        <div class="col-sm-4">
+            <img alt="Image 3" class="img-fluid" th:src="@{/images/img3.jpg}">
+            <p>Technology</p>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-4">
+            <img alt="Image 4" class="img-fluid" th:src="@{/images/img4.jpg}">
+            <p>HR Management</p>
+        </div>
+        <div class="col-sm-4">
+            <img alt="Image 5" class="img-fluid" th:src="@{/images/img5.png}">
+            <p>Health Care</p>
+        </div>
+        <div class="col-sm-4">
+            <img alt="Image 6" class="img-fluid" th:src="@{/images/img6.jpg}">
+            <p>Law And Science</p>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

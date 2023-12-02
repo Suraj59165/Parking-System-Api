@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en" th:replace="~{admin/base::layout(~{::section})}" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>this is home page</title>
+</head>
+
+<body>
+	<section>
+		<!-- Admin Dashboard Card Section Started -->
+		<div class="container">
+			<div class="col">
+				<div class="card mycard">
+					<div class="card-body shadow-sm">
+						<div class="row">
+							<h5 class="col-8 text-muted text-start " disabled><b>Admin Dashboard</b></h5>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+			<!-- Admin Dashboard Card Section Ended -->
+
+			<!-- Employees Card List Started -->
+			<div class="card mycard mt-2">
+				<div class="card-body shadow-sm">
+					<div class="row p-3">
+						<div class="card ms-2 card-1 card-hover shadow-sm" style="width: 18rem; ">
+							<div class="card-body">
+								<h5 class="card-title">Client Requests</h5>
+								<h1>3</h1>
+							</div>
+						</div>
+
+						<div class="card ms-3 card-2 card-hover1 shadow-sm" style="width: 18rem;">
+							<div class="card-body">
+								<h5 class="card-title">Managers</h5>
+								<h1>6</h1>
+							</div>
+						</div>
+
+						<div class="card ms-3 card-3 card-hover2 shadow-sm" style="width: 18rem;">
+							<div class="card-body">
+								<h5 class="card-title">Approved Clients</h5>
+								<h1>6</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Employees Card List Ended -->
+
+			<!-- Search Bar And table  Started -->
+			<div class="card mt-2 mycard2 shadow-sm">
+				<div class="card-body">
+					<div class="row">
+						<div class="col  d-flex justify-content-end rounded">
+							<input type="search">
+							<button class=" ms-3 btn btn-sm btn-outline-primary me-4" onclick="handleTable()">Search</button>
+						</div>
+					<div class="row ">
+						<div class="col mt-3">
+
+							
+								<div id="mytable" class="table hide ">
+		
+									<table class="table table-bordered ">
+										<thead class="bg-primary text-light ">
+											<tr class="text-center">
+												<th class="hide">Id</th>
+												<th>NAME</th>
+												<th>EMAIL</th>
+												<th class="hide">PASSWORD</th>
+												<th>PHONE</th>
+												<th>ADDRESS</th>
+												<th>ORGNAME</th>
+												<th>C.PERSON</th>
+												<th>RUPEES</th>
+												<th>ALLOCATE</th>
+												<th>ACTION</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="text-center" th:each="client:${clients}">
+												<th class="hide" th:text="${client.id}" />
+												<th th:text="${client.name}" />
+												<th th:text="${client.email}" />
+												<th class="hide" th:text="${client.password}" />
+												<td th:text="${client.phone}" />
+												<td th:text="${client.address}" />
+												<td th:text="${client.orgname}" />
+												<td th:text="${client.contactperson}" />
+												<td th:text="${client.rupees}" />
+												<td><select class="mySelect" id="manager_details">
+														<option th:each="manager:${managers}" th:text="${manager.name}"
+															th:value="${manager.id}" />
+		
+													</select></td>
+												<td>
+													<button class="btn btn-outline-primary btn-sm" id="btn"
+														onclick="handleInReview(this)">View
+													</button>
+													<button class="btn btn-outline-danger btn-sm" id="btn"
+														onclick="handleInReview(this)">Delete
+													</button>
+												</td>
+		
+											</tr>
+		
+										</tbody>
+		
+									</table>
+								</div>
+							</div>
+					
+		
+		
+					</div>	
+
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Search Bar Ended -->
+		
+		
+
+
+		</div>
+		</div>
+	</section>
+</body>
+
+</html>
