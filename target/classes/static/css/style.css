@@ -1,0 +1,208 @@
+body {
+	background: #ffffff !important;
+}
+.mycard{
+	height: fit-content;
+	
+}
+
+/* Remove the blue outline on select option elements */
+select:focus option {
+  outline: none;
+}
+
+
+.mycard2{
+	height: fit-content;
+	
+}
+.myselect{
+	width: fit-content;
+	
+}
+
+
+.card-1 {
+	background-color: rgb(255, 128, 0);
+	color: white;
+}
+
+.card-2 {
+	background-color: rgb(255, 0, 128);
+	color: white;
+}
+
+.card-3 {
+	background-color: rgb(0, 128, 255);
+	color: white;
+}
+
+.card-hover:hover {
+	/* Add your desired styles for the hover effect here */
+	background-color: rgb(255, 128, 0);
+	/* Change background color on hover */
+	transform: scale(1.05);
+	/* Increase size on hover */
+}
+
+.card-hover1:hover {
+	/* Add your desired styles for the hover effect here */
+	background-color:rgb(255, 0, 128);
+	/* Change background color on hover */
+	transform: scale(1.05);
+	/* Increase size on hover */
+}
+
+.card-hover2:hover {
+	/* Add your desired styles for the hover effect here */
+	background-color: rgb(0, 128, 255);
+	/* Change background color on hover */
+	transform: scale(1.05);
+	/* Increase size on hover */
+}
+
+.bold-blue {
+	font-weight: bold;
+	color: #0277BD;
+}
+
+.banner {
+	width: 100%;
+	height: 93vh;
+	background-size: cover;
+	color: white;
+}
+
+.my-card {
+	padding: 20px;
+	background: #FFFFFF;
+}
+
+#login .container #login-row #login-column #login-box {
+	margin-top: 100px;
+	max-width: 600px;
+	height: 300px;
+	background-color: white;
+}
+
+#login .container #login-row #login-column #login-box #login-form {
+	padding: 10px;
+}
+
+
+
+/* sidebar style */
+@media only screen and (max-width: 600px) {
+	.sidebar {
+		display: none;
+		width: 80% !important;
+		background: #ab1919;
+		height: 100vh;
+		position: fixed;
+		padding-top: 20px;
+	}
+
+
+}
+
+.sidebar {
+	width: 15%;
+	background: rgb(255, 255, 255);
+	height: 100%;
+	position: fixed;
+	padding-top: 25px;
+
+}
+
+.sidebar a {
+	display: block;
+	width: 100%;
+	padding: 10px 25px;
+	text-decoration: none;
+	color: #f2f2fa;
+}
+
+.sidebar a:hover {
+	background: #f2f2fa;
+}
+
+
+
+.content {
+	margin-left: 16%;
+}
+
+.my_profile_picture {
+	width: 35px;
+	height: 35px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+/*  search css */
+.search-container {
+	position: relative;
+}
+
+.search-result {
+	position: absolute;
+	background: white;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid gray;
+	display: none;
+}
+
+.active {
+	background: #0080ff !important;
+	color: white !important;
+}
+
+
+
+
+
+
+
+
+.home {
+	margin-left: 10px;
+}
+
+.form-row {
+	margin-bottom: 15px;
+}
+
+.suraj {
+	max-width: 1400px;
+	/* Adjust the maximum width as needed */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.cardo {
+	margin-top: 50px;
+}
+
+.colorcss {
+	background-color: #808080;
+}
+
+.my-custom-scrollbar {
+	position: relative;
+	height: 200px;
+	overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+	display: block;
+}
+
+.suraj {
+	height: 215px;
+}
+
+.hide {
+	display: none;
+}

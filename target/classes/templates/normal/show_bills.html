@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" th:replace="~{normal/base::layout(~{::section})}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>this is home page</title>
+</head>
+<body>
+<section>
+
+    <div class="col">
+
+
+        <div class=" suraj   p-2">
+
+            <p class="card-title">
+                Pending Task Bills
+            </p>
+
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+                <table class="table table-bordered table-striped mb-0">
+                    <thead class="bg-dark text-light ">
+                    <tr class="text-center" >
+                        <th class="hide">Id</th>
+                        <th>Type</th>
+                        <th>Count</th>
+                        <th>Requirements</th>
+                        <th>ReferenceStyle</th>
+                        <th>Deadline</th>
+                        <th>Charges</th>
+                        <th>Bill</th>
+                        <th>Pay</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="text-center" th:each="task:${task_payment}">
+                        <th class="hide">hello</th>
+                        <td th:text="${task.getTasktype()}"/>
+                        <td th:text="${task.count}"/>
+                        <td th:text="${task.requirements}"/>
+                        <td th:text="${task.referencestyle}"/>
+                        <td th:text="${task.deadline}"/>
+                        <td th:text="${task.charges}"/>
+                        <td id="amount" th:text="${task.getClientAmount().getAmount()}"/>
+                        <td>
+                            <button class=" btn btn-primary btn-sm" onclick="amountHandler(this)">
+                                Pay
+                            </button>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+</section>
+</body>
+</html>

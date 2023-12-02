@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" th:replace="~{manager/base::layout(~{::section})}" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>this is home page</title>
+</head>
+
+<body>
+	<section>
+
+		<div class="col-md-14">
+
+			<div class="col">
+
+
+				<div class="card   p-3">
+
+					<table class="table table-bordered table-striped mb-0">
+						<thead class="bg-dark text-light ">
+							<tr class="text-center">
+								<th class="hide">Id</th>
+								<th>Type</th>
+								<th>Count</th>
+								<th>Requirements</th>
+								<th>ReferenceStyle</th>
+								<th>Deadline</th>
+								<th>Charges</th>
+								<th>Status</th>
+								<th class="hide">Query</th>
+								<th>Action</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="text-center" th:each="task:${approved_task}">
+								<th class="hide" th:text="${task.id}" />
+								<th th:text="${task.tasktype}" />
+								<th th:text="${task.count}" />
+								<td th:text="${task.requirements}" />
+								<td th:text="${task.referencestyle}" />
+								<td th:text="${task.deadline}" />
+								<td th:text="${task.charges}" />
+								<td class="hide" th:text="${task.query}">hello</td>
+								<td><b class="text-success" th:text="${task.status.status}"></b></td>
+								<td>
+									<button class="btn btn-danger btn-sm" id="btn" onclick="takeAction(this)">view
+									</button>
+								</td>
+
+
+
+
+							</tr>
+
+
+						</tbody>
+
+					</table>
+				</div>
+			</div>
+		</div>
+
+
+	</section>
+</body>
+
+</html>
